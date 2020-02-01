@@ -43,7 +43,7 @@ public class PlayerActions : MonoBehaviour
    
         chargeCounter01++;
         HammerIcon.fillAmount = chargeCounter01 / 300f;
-        m_Animator.SetBool("Punch", true);
+        m_Animator.SetBool("Smash", true);
 
         if(chargeCounter01 >= 300){
             chargeCounter01 = 0 ;
@@ -71,11 +71,15 @@ public class PlayerActions : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonUp("Fire2")){
             chargeCounter01 = 0 ;
             HammerIcon.fillAmount = 0;
+                    m_Animator.SetBool("Smash", false);
+
         }
 
         if (CrossPlatformInputManager.GetButtonUp("Fire3")){
             chargeCounter02 = 0 ;
             KickIcon.fillAmount = 0;
+                    m_Animator.SetBool("Kick", false);
+
         }
 
     }
