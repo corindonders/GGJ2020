@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 7629803262571747976}
   - component: {fileID: 7629803262571958272}
   m_Layer: 0
-  m_Name: AIThirdPersonController (1)
+  m_Name: AIBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1041,7 +1041,7 @@ Animator:
   m_GameObject: {fileID: 7629803262561541422}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 44042c7f2955b4b47b9acdf27d0e71ed, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5fb28b2cd2f18234bae8a70836996342, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
