@@ -34,7 +34,6 @@ public class BreakInfo : MonoBehaviour
 
 	private void ReplacePrefab()
 	{
-		Debug.Log("ReplacePrefab");
 		GameObject replacement = Instantiate(replacementPrefab, transform.position, Quaternion.identity);
 
 		replacement.transform.parent = gameObject.transform.parent;
@@ -44,7 +43,6 @@ public class BreakInfo : MonoBehaviour
 
 	private void BreakObject()
 	{
-		Debug.Log("BreakObject");
 		Rigidbody[] objectChildren = gameObject.GetComponentsInChildren<Rigidbody>();
 
 		foreach (Rigidbody objectChild in objectChildren)
