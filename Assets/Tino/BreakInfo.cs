@@ -4,38 +4,63 @@ using UnityEngine;
 
 public class BreakInfo : MonoBehaviour
 {
-    public bool broken;
+	public bool broken;
 
-    public GameObject brokenObject;
-    public GameObject untouchedObject;
+	public GameObject replacementPrefab;
 
-    public bool Break()
-    {
-        if (broken)
-            return false;
+	public bool Break()
+	{
+		if (broken)
+			return false;
 
-        broken = true;
+		broken = true;
 
-        updateMesh(broken);
+		BreakObject();
 
-        return true;
-    }
+		return true;
+	}
 
-    public bool Repair()
-    {
-        if (broken)
-            return false;
+	public bool Repair()
+	{
+		if (!broken)
+			return false;
 
-        broken = false;
+		broken = false;
 
-        updateMesh(broken);
+		ReplacePrefab();
 
-        return true;
-    }
+		return true;
+	}
 
-    private void updateMesh(bool broken)
-    {
-        untouchedObject.SetActive(!broken);
-        brokenObject.SetActive(broken);
-    }
+	private void ReplacePrefab()
+	{
+		Debug.Log("ReplacePrefab");
+		GameObject replacement = Instantiate(replacementPrefab, transform.position, Quaternion.identity);
+
+		replacement.transform.parent = gameObject.transform.parent;
+
+		Destroy(gameObject);
+	}
+
+	private void BreakObject()
+	{
+		Debug.Log("BreakObject");
+		Rigidbody[] objectChildren = gameObject.GetComponentsInChildren<Rigidbody>();
+
+		foreach (Rigidbody objectChild in objectChildren)
+		{
+			if (objectChild != null)
+			{
+				objectChild.isKinematic = false;
+
+				objectChild.AddExplosionForce(700, gameObject.transform.position, 2);
+			}
+		}
+	}
+
+	void Start()
+	{
+		Break();
+		Repair();
+	}
 }
