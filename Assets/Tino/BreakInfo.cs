@@ -8,6 +8,8 @@ public class BreakInfo : MonoBehaviour
 
 	public GameObject replacementPrefab;
 
+	public int explosionforce; // 300 should be fine
+
 	public bool Break()
 	{
 		if (broken)
@@ -51,7 +53,7 @@ public class BreakInfo : MonoBehaviour
 			{
 				objectChild.isKinematic = false;
 
-				objectChild.AddExplosionForce(300, gameObject.transform.position, 2);
+				objectChild.AddExplosionForce(explosionforce, gameObject.transform.position, 2);
 			}
 		}
 	}
