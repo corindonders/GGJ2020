@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BreakInfo : MonoBehaviour
 {
+	// This should be placed on a breakable gameobject
 	public bool broken;
 
 	public GameObject replacementPrefab;

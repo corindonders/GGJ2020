@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CarryInfo : MonoBehaviour
 {
+    // This should be placed on a gameobject that can be picked up
     public bool pickedUp;
 
     public float carryOffsetUp;
