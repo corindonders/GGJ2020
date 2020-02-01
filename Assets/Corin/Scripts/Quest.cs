@@ -21,7 +21,7 @@ public class Quest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoreController = GameObject.Find("@ Score");
+        ScoreController = GameObject.Find("@ Score Manager");
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class Quest : MonoBehaviour
     public void QuestSucces(){
         if (completed == false) {
         completed = true;
-        
+
         VFX.SetActive(true);
         UI.SetActive(false);
         

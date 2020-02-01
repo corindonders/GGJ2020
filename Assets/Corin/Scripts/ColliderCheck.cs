@@ -9,6 +9,7 @@ public class ColliderCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Parent = this.transform.parent.gameObject;
     }
 

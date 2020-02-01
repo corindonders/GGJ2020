@@ -9,6 +9,7 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI  scoreText;
     private int score;
     public int Tasks;
+    public GameObject Exit;
     // Start is called before the first frame update
     void Start()
     {           
@@ -28,7 +29,8 @@ public class Score : MonoBehaviour
         scoreText.text = "" + score + "/"  + Tasks + "Tasks completed" ;
 
         if (score == Tasks) {
-            Debug.Log("You Win");
+            scoreText.text = "You completed all your tasks. Go to the exit!!!" ;
+            Exit.SetActive(true);
         }
 
     }
