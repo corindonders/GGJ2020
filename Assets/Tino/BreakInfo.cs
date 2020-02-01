@@ -51,14 +51,8 @@ public class BreakInfo : MonoBehaviour
 			{
 				objectChild.isKinematic = false;
 
-				objectChild.AddExplosionForce(700, gameObject.transform.position, 2);
+				objectChild.AddExplosionForce(300, gameObject.transform.position, 2);
 			}
 		}
-	}
-
-	void Start()
-	{
-		Break();
-		Repair();
 	}
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrackInitialPosition : MonoBehaviour
 {
     public Vector3 initialPosition;
+    public int margin;
 
     void Start()
     {
