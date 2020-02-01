@@ -5,6 +5,7 @@ using UnityEngine;
 public class WinExit : MonoBehaviour
 {   
     public GameObject WinScreen;
+    public GameObject MainUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class WinExit : MonoBehaviour
         {
             //Output the message
             WinScreen.SetActive(true);
+            MainUI.SetActive(false);
         }
 
     }
