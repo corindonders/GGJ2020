@@ -14,7 +14,12 @@ public class PlayerActions : MonoBehaviour
     public int chargeCounter00 = 0;
     public int chargeCounter01 = 0;
     public int chargeCounter02 = 0;
-    
+
+    public AudioSource FartSound;
+    public AudioSource KickSound;
+    public AudioSource PunchSound;
+    public AudioSource ExlosionSound;
+
     public GameObject player;   
     private Animator m_Animator;
     // Start is called before the first frame update
@@ -36,6 +41,7 @@ public class PlayerActions : MonoBehaviour
         if(chargeCounter00 >= 300){
             Instantiate(Poo, Ass.transform.position, Quaternion.Euler(new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360))));
             chargeCounter00 = 0 ;
+            FartSound.Play();
         }
     }
 
@@ -44,9 +50,13 @@ public class PlayerActions : MonoBehaviour
         chargeCounter01++;
         HammerIcon.fillAmount = chargeCounter01 / 300f;
         m_Animator.SetBool("Smash", true);
+            //PunchSound.Play();
 
         if(chargeCounter01 >= 300){
             chargeCounter01 = 0 ;
+            //PunchSound.Play();
+            ExlosionSound.PlayDelayed(10);
+
         }
     }
 
@@ -55,9 +65,12 @@ public class PlayerActions : MonoBehaviour
         chargeCounter02++;
         KickIcon.fillAmount = chargeCounter02 / 300f;
         m_Animator.SetBool("Kick", true);
+            //KickSound.Play();
 
         if(chargeCounter02 >= 300){
             chargeCounter02 = 0 ;
+            //KickSound.Play();
+            ExlosionSound.PlayDelayed(10);
         }
     }
 
