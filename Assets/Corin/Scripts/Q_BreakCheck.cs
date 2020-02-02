@@ -6,6 +6,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Q_BreakCheck : MonoBehaviour
 {
     public GameObject Parent;
+    public GameObject Object;
+
     public int chargeCounter01 = 0;
     public bool PlayerInside;
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class Q_BreakCheck : MonoBehaviour
             if (PlayerInside == true){
                 chargeCounter01++;
                 if(chargeCounter01 >= 300){
+                    Object.name = "Broken";
                     Parent.GetComponent<Quest>().QuestSucces();
                 }
             }
