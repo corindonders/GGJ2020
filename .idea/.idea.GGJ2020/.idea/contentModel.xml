@@ -623,6 +623,7 @@
         <e p="Tino" t="Include">
           <e p="BreakInfo.cs" t="Include" />
           <e p="CarryInfo.cs" t="Include" />
+          <e p="InteractionCollision.cs" t="Include" />
           <e p="TrackInitialPosition.cs" t="Include" />
         </e>
       </e>
