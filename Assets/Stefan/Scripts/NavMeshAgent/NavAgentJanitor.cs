@@ -29,6 +29,7 @@ public class NavAgentJanitor : MonoBehaviour
         agent.updateRotation = false;
         agent.updatePosition = true;
         agent.destination = office.transform.position;
+        character = GetComponent<ThirdPersonCharacter>();
         StartCoroutine(DoRegularCheck());
     }
     
@@ -61,16 +62,10 @@ public class NavAgentJanitor : MonoBehaviour
 
     void Update()
     {
-        if(character == null)
-            character = GetComponent<ThirdPersonCharacter>();
+        if (agent.remainingDistance > agent.stoppingDistance)
+            character.Move(agent.desiredVelocity, false, false);
         else
-        {
-           
-            if (agent.remainingDistance > agent.stoppingDistance)
-                character.Move(agent.desiredVelocity, false, false);
-            else
-                character.Move(Vector3.zero, false, false);
-        }
+            character.Move(Vector3.zero, false, false);
         
         if (CrossPlatformInputManager.GetButton("Fire1") || CrossPlatformInputManager.GetButton("Fire2") ||
             CrossPlatformInputManager.GetButton("Fire3"))

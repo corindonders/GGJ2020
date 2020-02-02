@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 6498765165039424803}
   - component: {fileID: 6498765165047934785}
   - component: {fileID: 6498765165047981513}
+  - component: {fileID: -697831663800937494}
   m_Layer: 0
   m_Name: AIFemale_01
   m_TagString: Untagged
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6498765165057616103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
   m_Name: 
@@ -266,6 +267,22 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 0.6
   m_AnimSpeedMultiplier: 0.6
   m_GroundCheckDistance: 0.2
+--- !u!114 &-697831663800937494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498765165057616103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca69d1ebf89e7f44944deb4b7de5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workplace: {fileID: 0}
+  activities: []
+  lastGoal: -1
+  agent: {fileID: 0}
 --- !u!1 &6498765165057617641
 GameObject:
   m_ObjectHideFlags: 0
