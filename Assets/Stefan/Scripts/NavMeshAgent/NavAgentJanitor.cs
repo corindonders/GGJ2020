@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.CrossPlatformInput;
 using Random = UnityEngine.Random;
 
@@ -19,11 +20,14 @@ public class NavAgentJanitor : MonoBehaviour
     public bool isPlayerInside;
 
     public GameObject levelManager;
+    public ThirdPersonCharacter character { get; private set; }
     
     // Start is called before the first frame update
     void Start()
     {
         levelManager = GameObject.Find("@ Level Manager");
+        agent.updateRotation = false;
+        agent.updatePosition = true;
         agent.destination = office.transform.position;
         StartCoroutine(DoRegularCheck());
     }
@@ -57,6 +61,17 @@ public class NavAgentJanitor : MonoBehaviour
 
     void Update()
     {
+        if(character == null)
+            character = GetComponent<ThirdPersonCharacter>();
+        else
+        {
+           
+            if (agent.remainingDistance > agent.stoppingDistance)
+                character.Move(agent.desiredVelocity, false, false);
+            else
+                character.Move(Vector3.zero, false, false);
+        }
+        
         if (CrossPlatformInputManager.GetButton("Fire1") || CrossPlatformInputManager.GetButton("Fire2") ||
             CrossPlatformInputManager.GetButton("Fire3"))
         {
