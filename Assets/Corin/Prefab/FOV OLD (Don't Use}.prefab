@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6782021997580005559}
   - component: {fileID: 1544018904292920112}
   m_Layer: 0
-  m_Name: FOV Scale 1
+  m_Name: FOV OLD (Don't Use}
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722381372661351295}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.06}
   m_Children:
@@ -324,6 +324,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8327767279726635211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491409971725781880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f07ee17a66ddf4da810ab2dd361270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Emoji_Pouting: {fileID: 732034333410494153}
+  Emoji_Serious: {fileID: 7213870937601948242}
+  Emoji_Wrench: {fileID: 5466053707725213089}
+  Emoji_Exclamation: {fileID: 7575097181754314175}
+  Emoji_Broom: {fileID: 8792411587096746744}
 --- !u!1 &7575097181754314175
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,23 +422,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8327767279726635211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7491409971725781880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f07ee17a66ddf4da810ab2dd361270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Emoji_Pouting: {fileID: 732034333410494153}
-  Emoji_Serious: {fileID: 7213870937601948242}
-  Emoji_Wrench: {fileID: 5466053707725213089}
-  Emoji_Exclamation: {fileID: 7575097181754314175}
-  Emoji_Broom: {fileID: 8792411587096746744}
 --- !u!1 &8792411587096746744
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +514,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SelectedEditorRenderState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 733014941921573406, guid: e13d2cede80b7bd45b2bb5f5f2db36fc,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 733014941921573406, guid: e13d2cede80b7bd45b2bb5f5f2db36fc,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1711103979629428771, guid: e13d2cede80b7bd45b2bb5f5f2db36fc,
         type: 3}
