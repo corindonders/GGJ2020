@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.CrossPlatformInput;
 using Random = UnityEngine.Random;
 
 public class NavAgentJanitor : MonoBehaviour
@@ -14,10 +15,15 @@ public class NavAgentJanitor : MonoBehaviour
     public int minNumberOfPoints = 5;
     public float chanceToStopCheck = 0.9995f;
     public NavMeshAgent agent;
+
+    public bool isPlayerInside;
+
+    public GameObject levelManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = GameObject.Find("@ Level Manager");
         agent.destination = office.transform.position;
         StartCoroutine(DoRegularCheck());
     }
@@ -47,5 +53,29 @@ public class NavAgentJanitor : MonoBehaviour
         agent.destination = office.transform.position;
 
         StartCoroutine(DoRegularCheck());
+    }
+
+    void Update()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire1") || CrossPlatformInputManager.GetButton("Fire2") ||
+            CrossPlatformInputManager.GetButton("Fire3"))
+        {
+            if (isPlayerInside)
+            {
+                levelManager.GetComponent<LevelManager>().LoseLevel();
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider Other){
+        if(Other.gameObject.name == "ThirdPersonController"){
+            isPlayerInside= true;
+        }
+    }
+
+    void OnTriggerExit(Collider Other){
+        if(Other.gameObject.name == "ThirdPersonController"){
+            isPlayerInside= false;     
+        }
     }
 }
