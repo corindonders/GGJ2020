@@ -12,6 +12,8 @@
         <e p="Corin" t="Include">
           <e p="Scripts" t="Include">
             <e p="Despawn.cs" t="Include" />
+            <e p="FOV.cs" t="Include" />
+            <e p="FOV_Scale.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
             <e p="PlayerActions.cs" t="Include" />
             <e p="Q_BreakCheck.cs" t="Include" />
