@@ -26,7 +26,7 @@ public class Score : MonoBehaviour
 
     void UpdateScore ()
     {
-        scoreText.text = "" + score + "/"  + Tasks + "Tasks completed" ;
+        scoreText.text = "" + score + "/"  + Tasks + " tasks completed" ;
 
         if (score == Tasks) {
             scoreText.text = "You completed all your tasks. Go to the exit!!!" ;
