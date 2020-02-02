@@ -13,6 +13,8 @@ public class Activity : MonoBehaviour
     public int maxTimeOnTarget = 10000;
     public int minTimeOnTarget = 1000;
 
+    public List<Activity> alternativeActivities = new List<Activity>();
+
     private void Start()
     {
         for (var i = 0; i < subTargets.Count; i++)
@@ -37,6 +39,20 @@ public class Activity : MonoBehaviour
 
         _numberOnSubTarget[newGoal]++;
         return subTargets[newGoal];
+    }
+
+    public Activity GetAlternativeActivity()
+    {
+        if (alternativeActivities.Count == 0)
+            return null;
+
+        int maxTries = 12;
+        int tries = 0;
+        int newGoal = Random.Range(0, alternativeActivities.Count);
+
+        _numberOnSubTarget[newGoal]++;
+        
+        return alternativeActivities[newGoal];
     }
 
     public void DoneAtPosition(Vector3 position)

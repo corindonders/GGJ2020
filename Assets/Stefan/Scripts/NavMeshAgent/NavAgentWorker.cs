@@ -96,8 +96,34 @@ public class NavAgentWorker : MonoBehaviour
                 if (target == null)
                 {
                     Debug.Log($"{transform.name}: My task was blocked, no empty places left");
-                    _blockedActivities.Add(lastGoal);
-                    MoveToDesk();
+                    var newActivity = activities[lastGoal].GetAlternativeActivity();
+                    if (newActivity != null)
+                    {
+                        int? activityId = null;
+                        for (var i = 0; i < activities.Count; i++)
+                        {
+                            if (activities[i] == newActivity)
+                                activityId = i;
+                        }
+
+                        if (activityId.HasValue)
+                        {
+                            agent.destination = activities[activityId.Value].mainTarget.transform.position;
+                            lastGoal = activityId.Value;
+                            _state = ActivityState.WalkingToActivity;
+                            _activityProgress = 0;
+                        }
+                        else
+                        {
+                            _blockedActivities.Add(lastGoal);
+                            MoveToDesk();
+                        }
+                    }
+                    else
+                    {
+                        _blockedActivities.Add(lastGoal);
+                        MoveToDesk();
+                    }
                 }
                 else
                 {
