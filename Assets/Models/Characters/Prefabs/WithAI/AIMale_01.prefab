@@ -1778,8 +1778,8 @@ GameObject:
   - component: {fileID: 975872336950771133}
   - component: {fileID: 975872336959325175}
   - component: {fileID: 975872336973274187}
-  - component: {fileID: 975872336964806185}
   - component: {fileID: 975872336964725921}
+  - component: {fileID: 7796905614869812049}
   m_Layer: 0
   m_Name: AIMale_01
   m_TagString: Untagged
@@ -1876,19 +1876,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &975872336964806185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975872336954040719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &975872336964725921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1909,6 +1896,22 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 0.6
   m_AnimSpeedMultiplier: 0.6
   m_GroundCheckDistance: 0.2
+--- !u!114 &7796905614869812049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975872336954040719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca69d1ebf89e7f44944deb4b7de5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workplace: {fileID: 0}
+  activities: []
+  lastGoal: -1
+  agent: {fileID: 0}
 --- !u!1 &975872336954042241
 GameObject:
   m_ObjectHideFlags: 0

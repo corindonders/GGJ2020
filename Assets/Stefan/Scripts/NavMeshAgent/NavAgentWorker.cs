@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,10 +25,12 @@ public class NavAgentWorker : MonoBehaviour
     public NavMeshAgent agent;
 
     private List<int> _blockedActivities = new List<int>();
+    public ThirdPersonCharacter character { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
         MoveToDesk();
+        character = GetComponent<ThirdPersonCharacter>();
     }
 
     private void MoveToDesk()
@@ -67,9 +70,15 @@ public class NavAgentWorker : MonoBehaviour
     
     void Update()
     {
+        if (agent.remainingDistance > agent.stoppingDistance)
+            character.Move(agent.desiredVelocity, false, false);
+        else
+            character.Move(Vector3.zero, false, false);
+        
+        
         if ((_state == ActivityState.Working || _state == ActivityState.WalkingToWorkSpace))
         {
-            if (Random.value > 0.999f)
+            if (Random.value > 0.9999f)
             {
                 var newActivity = GetPrioritisedActivity();
 
@@ -87,8 +96,34 @@ public class NavAgentWorker : MonoBehaviour
                 if (target == null)
                 {
                     Debug.Log($"{transform.name}: My task was blocked, no empty places left");
-                    _blockedActivities.Add(lastGoal);
-                    MoveToDesk();
+                    var newActivity = activities[lastGoal].GetAlternativeActivity();
+                    if (newActivity != null)
+                    {
+                        int? activityId = null;
+                        for (var i = 0; i < activities.Count; i++)
+                        {
+                            if (activities[i] == newActivity)
+                                activityId = i;
+                        }
+
+                        if (activityId.HasValue)
+                        {
+                            agent.destination = activities[activityId.Value].mainTarget.transform.position;
+                            lastGoal = activityId.Value;
+                            _state = ActivityState.WalkingToActivity;
+                            _activityProgress = 0;
+                        }
+                        else
+                        {
+                            _blockedActivities.Add(lastGoal);
+                            MoveToDesk();
+                        }
+                    }
+                    else
+                    {
+                        _blockedActivities.Add(lastGoal);
+                        MoveToDesk();
+                    }
                 }
                 else
                 {

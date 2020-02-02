@@ -658,8 +658,8 @@ GameObject:
   - component: {fileID: 1008286693405939404}
   - component: {fileID: 1008286693414217862}
   - component: {fileID: 1008286693424265018}
-  - component: {fileID: 1008286693415488856}
   - component: {fileID: 1008286693415700432}
+  - component: {fileID: -3524995475617396003}
   m_Layer: 0
   m_Name: AIFemale_02
   m_TagString: Untagged
@@ -756,19 +756,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1008286693415488856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1008286693408951038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &1008286693415700432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +776,22 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 0.6
   m_AnimSpeedMultiplier: 0.6
   m_GroundCheckDistance: 0.2
+--- !u!114 &-3524995475617396003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008286693408951038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca69d1ebf89e7f44944deb4b7de5ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workplace: {fileID: 0}
+  activities: []
+  lastGoal: -1
+  agent: {fileID: 0}
 --- !u!1 &1008286693408951536
 GameObject:
   m_ObjectHideFlags: 0
