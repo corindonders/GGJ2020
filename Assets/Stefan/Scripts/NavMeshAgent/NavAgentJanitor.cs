@@ -19,13 +19,11 @@ public class NavAgentJanitor : MonoBehaviour
 
     public bool isPlayerInside;
 
-    public GameObject levelManager;
     public ThirdPersonCharacter character { get; private set; }
     
     // Start is called before the first frame update
     void Start()
     {
-        levelManager = GameObject.Find("@ Level Manager");
         agent.updateRotation = false;
         agent.updatePosition = true;
         agent.destination = office.transform.position;
@@ -67,14 +65,7 @@ public class NavAgentJanitor : MonoBehaviour
         else
             character.Move(Vector3.zero, false, false);
         
-        if (CrossPlatformInputManager.GetButton("Fire1") || CrossPlatformInputManager.GetButton("Fire2") ||
-            CrossPlatformInputManager.GetButton("Fire3"))
-        {
-            if (isPlayerInside)
-            {
-                levelManager.GetComponent<LevelManager>().LoseLevel();
-            }
-        }
+ 
     }
 
     void OnTriggerEnter(Collider Other){

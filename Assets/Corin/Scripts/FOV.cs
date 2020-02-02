@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class FOV : MonoBehaviour
 {
@@ -10,10 +11,19 @@ public class FOV : MonoBehaviour
     public GameObject Emoji_Exclamation;
     public GameObject Emoji_Broom;
     private Transform camera;
+
+    public bool isPlayerInside;
+    public GameObject levelManager;
+
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main.transform;
+                levelManager = GameObject.Find("@ Level Manager");
+                            var cubeRenderer = this.GetComponent<Renderer>();
+
+            cubeRenderer.material.SetColor("_Color", new Color(0f, 0f, 0.5f, 0.25f));
+
     }
 
     // Update is called once per frame
@@ -24,13 +34,23 @@ public class FOV : MonoBehaviour
         Emoji_Wrench.transform.LookAt(camera);
         Emoji_Exclamation.transform.LookAt(camera);
         Emoji_Broom.transform.LookAt(camera);
+
+        if (CrossPlatformInputManager.GetButton("Fire1") || CrossPlatformInputManager.GetButton("Fire2") ||  CrossPlatformInputManager.GetButton("Fire3"))
+        {
+            if (isPlayerInside)
+            {
+                levelManager.GetComponent<LevelManager>().LoseLevel();
+            }
+        }
+
     }
 
     void OnTriggerEnter(Collider Other){
         if(Other.gameObject.name == "ThirdPersonController"){
             //Get the Renderer component from the new cube
             var cubeRenderer = this.GetComponent<Renderer>();
-       
+                   isPlayerInside= true;
+
             //Call SetColor using the shader property name "_Color" and setting the color to red
             cubeRenderer.material.SetColor("_Color", new Color(1f, 0f, 0f, 0.3f));
             Emoji_Exclamation.SetActive(true);
@@ -50,8 +70,10 @@ public class FOV : MonoBehaviour
         if(Other.gameObject.name == "ThirdPersonController"){
             //Get the Renderer component from the new cube
             var cubeRenderer = this.GetComponent<Renderer>();
+                        isPlayerInside= false;
+
             //Call SetColor using the shader property name "_Color" and setting the color to red
-            cubeRenderer.material.SetColor("_Color", new Color(0f, 0f, 0f, 0.15f));
+            cubeRenderer.material.SetColor("_Color", new Color(0f, 0f, 0.5f, 0.25f));
             Emoji_Exclamation.SetActive(false);
         }
         if(Other.gameObject.name == "Shit(Clone)"){
