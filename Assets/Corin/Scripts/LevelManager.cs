@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-
+    public GameObject lose;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +21,10 @@ public class LevelManager : MonoBehaviour
     public void ResartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
+
+    public void LoseLevel()
+    {
+        lose.SetActive(true);
     }
 }

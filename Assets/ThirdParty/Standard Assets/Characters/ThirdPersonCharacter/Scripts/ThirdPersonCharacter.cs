@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UnityStandardAssets.Characters.ThirdPerson
+namespace ThirdParty.UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
