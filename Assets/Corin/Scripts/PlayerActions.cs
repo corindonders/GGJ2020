@@ -35,10 +35,10 @@ public class PlayerActions : MonoBehaviour
     if(CrossPlatformInputManager.GetButton("Fire1")){
    
         chargeCounter00++;
-        PooIcon.fillAmount = chargeCounter00 / 300f;
+        PooIcon.fillAmount = chargeCounter00 / 150f;
         m_Animator.SetBool("Crouch", true);
 
-        if(chargeCounter00 >= 300){
+        if(chargeCounter00 >= 150){
             Instantiate(Poo, Ass.transform.position, Quaternion.Euler(new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360))));
             chargeCounter00 = 0 ;
             FartSound.Play();
@@ -48,11 +48,11 @@ public class PlayerActions : MonoBehaviour
     if(CrossPlatformInputManager.GetButton("Fire2")){
    
         chargeCounter01++;
-        HammerIcon.fillAmount = chargeCounter01 / 300f;
+        HammerIcon.fillAmount = chargeCounter01 / 100f;
         m_Animator.SetBool("Smash", true);
             //PunchSound.Play();
 
-        if(chargeCounter01 >= 300){
+        if(chargeCounter01 >= 100f){
             chargeCounter01 = 0 ;
             //PunchSound.Play();
             ExlosionSound.PlayDelayed(10);
@@ -63,11 +63,11 @@ public class PlayerActions : MonoBehaviour
     if(CrossPlatformInputManager.GetButton("Fire3")){
    
         chargeCounter02++;
-        KickIcon.fillAmount = chargeCounter02 / 300f;
+        KickIcon.fillAmount = chargeCounter02 / 100f;
         m_Animator.SetBool("Kick", true);
             //KickSound.Play();
 
-        if(chargeCounter02 >= 300){
+        if(chargeCounter02 >= 100f){
             chargeCounter02 = 0 ;
             //KickSound.Play();
             ExlosionSound.PlayDelayed(10);

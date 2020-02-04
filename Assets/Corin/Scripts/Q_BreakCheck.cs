@@ -23,7 +23,7 @@ public class Q_BreakCheck : MonoBehaviour
         if(CrossPlatformInputManager.GetButton("Fire2")){
             if (PlayerInside == true){
                 chargeCounter01++;
-                if(chargeCounter01 >= 300){
+                if(chargeCounter01 >= 100){
                     Object.name = "Broken";
                     Parent.GetComponent<Quest>().QuestSucces();
                 }
